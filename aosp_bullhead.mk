@@ -1,4 +1,5 @@
 #
+# Copyright (c) 2017 NXP Software. All rights are reserved.
 # Copyright 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,12 +30,12 @@ PRODUCT_DEVICE := bullhead
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on BullHead
 PRODUCT_MANUFACTURER := LGE
-PRODUCT_RESTRICT_VENDOR_FILES := true
+PRODUCT_RESTRICT_VENDOR_FILES := false
 
 PRODUCT_COPY_FILES += device/lge/bullhead/fstab.aosp_bullhead:root/fstab.bullhead
 
 $(call inherit-product, device/lge/bullhead/device.mk)
-$(call inherit-product-if-exists, vendor/lge/bullhead/device-vendor.mk)
+$(call inherit-product-if-exists, device/lge/bullhead/self-extractors/root/device-vendor.mk)
 
 PRODUCT_PACKAGES += \
     Launcher3
