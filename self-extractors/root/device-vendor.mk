@@ -1,3 +1,4 @@
+# Copyright (c) 2017 NXP Software. All rights are reserved.
 # Copyright 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,3 +17,9 @@ LOCAL_STEM := bullhead/device-partial.mk
 
 $(call inherit-product-if-exists, vendor/lge/$(LOCAL_STEM))
 $(call inherit-product-if-exists, vendor/qcom/$(LOCAL_STEM))
+
+# Switch to enable or disable NXP Software LVSAFA processing
+ENABLE_LVSAFA := true
+ifeq ($(ENABLE_LVSAFA), true)
+$(call inherit-product-if-exists, vendor/lifevibes/device-vendor-lvsa.mk)
+endif # ENABLE_LVSAFA
